@@ -1,8 +1,7 @@
+require('dotenv').config();
 const express = require("express");
-const dotenv = require("dotenv");
-dotenv.config();
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://suayshjain1707:g7gLWauZs1345ZdH@cluster0.0cxrn.mongodb.net/todo');
+
 
 const { userRouter }= require("./routes/user");
 const { todoRouter } = require("./routes/todo");
@@ -19,4 +18,10 @@ app.get("/healthy", (req, res)=> res.send("I am Healthy"));
 
 //  start writing your routes here
 
-app.listen(port, ()=> console.log(`server is running at http://localhost:${port}`));
+async function main() {
+    await mongoose.connect(process.env.MONGO_URL);
+    app.listen(3000);
+    console.log(`Listening on port${port}`)
+}
+
+main();

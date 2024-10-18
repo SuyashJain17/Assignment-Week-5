@@ -5,8 +5,6 @@ console.log("connected");
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Types.ObjectId;
 
-// Connect to MongoDB
-mongoose.connect('mongodb+srv://suayshjain1707:g7gLWauZs1345ZdH@cluster0.0cxrn.mongodb.net/todo');
 // Define schemas
 
 const UserSchema = new Schema({
